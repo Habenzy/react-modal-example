@@ -21,10 +21,24 @@ class App extends React.Component {
 
 
   render() {
+    let modal
+
+    if (this.state.modalDisplayed) {
+      modal = <Modal close={this.toggleModal} />
+    } else {
+      modal = null
+    }
+
     return (
       <div>
         <div id='content'>
           <button onClick={this.toggleModal}>Open Modal</button>
+          {modal}
+          {//This code does not require the if...else... conditional on lines 26-30
+            //this.state.modalDisplayed ?
+            //  <Modal close={this.toggleModal}/> :
+            //  null
+          }
           <p>
             Draught swing the lead come about maroon lad chantey hardtack. Ho yardarm hempen halter cutlass heave to avast Letter of Marque. Bilge Pieces of Eight belaying pin chandler nipper lass blow the man down. Admiral of the Black coffer driver Sail ho run a shot across the bow yard cackle fruit. Clipper scourge of the seven seas Jack Tar crack Jennys tea cup fire ship brigantine Nelsons folly. Yard knave hempen halter bucko Jack Ketch swab crow's nest. Long boat Letter of Marque yo-ho-ho jolly boat Sea Legs aft bowsprit. Jack Tar trysail quarterdeck Pieces of Eight square-rigged Buccaneer Admiral of the Black. Clipper rope's end Pirate Round line flogging chandler walk the plank.
           </p>
@@ -48,10 +62,7 @@ class App extends React.Component {
           </p>
 
         </div>
-        {this.state.modalDisplayed ?
-          <Modal close={this.toggleModal}/> :
-          null
-        }
+
       </div>
     )
   }
